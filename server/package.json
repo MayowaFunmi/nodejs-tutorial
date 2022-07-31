@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.19"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
