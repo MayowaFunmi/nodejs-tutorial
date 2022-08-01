@@ -1,6 +1,11 @@
 const express = require('express')
-
 const app = express()
+const morgan = require('morgan')
+const mongoose = require('mongoose')
+
+// connect to mongodb
+const dbURI = 'mongodb+srv://mayowafunmi:mayowafunmi@nodejstutorial.oycapba.mongodb.net/?retryWrites=true&w=majority'
+mongoose.connect(dbURI)
 
 // register view engine for template
 app.set('view engine', 'ejs'); // by default, express and ejs looks for views folder
@@ -9,6 +14,22 @@ app.set('view engine', 'ejs'); // by default, express and ejs looks for views fo
 
 // listen for request
 app.listen(3000)
+
+// middleware
+// app.use((req, res, next) => {
+//     console.log('new request made')
+//     console.log('host: ', req.hostname)
+//     console.log('path: ', req.path)
+//     console.log('method: ', req.method)
+//     next()
+// })
+
+// app.use((req, res, next) => {
+//     console.log('in the next middleware')
+//     next()
+// })
+app.use(express.static('public'))
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
     //res.send('<p>home page</p>')
